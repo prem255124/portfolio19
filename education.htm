@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประวัติการศึกษา | My Portfolio</title>
+    <style>
+        /* ตั้งค่าโทนสีหลัก (ฟ้า-ทอง) */
+        :root {
+            --primary-blue: #003366;    /* ฟ้าเข้ม */
+            --light-blue: #e6f0fa;      /* ฟ้าอ่อนสำหรับพื้นหลัง */
+            --gold: #D4AF37;            /* ทอง */
+            --dark-gold: #AA7C11;       /* ทองเข้ม */
+            --text-dark: #333333;       /* สีตัวหนังสือทั่วไป */
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-blue);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* แถบเมนูด้านบน */
+        header {
+            background-color: var(--primary-blue);
+            border-bottom: 3px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            color: var(--gold);
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        /* ส่วนเนื้อหา */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .education-card {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 8px solid var(--primary-blue);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        /* โครงสร้างไทม์ไลน์ประวัติการศึกษา */
+        .timeline {
+            position: relative;
+            border-left: 3px solid var(--primary-blue);
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        /* จุดวงกลมบนไทม์ไลน์ */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -28px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--gold);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .year {
+            font-weight: bold;
+            color: var(--dark-gold);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .school-name {
+            font-size: 20px;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .details {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            border-right: 4px solid var(--light-blue);
+        }
+
+        .btn-back {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--primary-blue);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-back:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* ท้ายเว็บ */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            border-top: 2px solid var(--gold);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">MY PORTFOLIO</a>
+            <ul>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="index.html#about">เกี่ยวกับฉัน</a></li>
+                <li><a href="index.html#projects">ผลงาน</a></li>
+                <li><a href="index.html#skills">ทักษะ</a></li>
+                <li><a href="index.html#contact">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="education-card">
+            <h1>ประวัติการศึกษา (Education)</h1>
+            
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="year">ปีการศึกษา 2566 - ปัจจุบัน</div>
+                    <div class="school-name">โรงเรียน [ใส่ชื่อโรงเรียนมัธยมปลายของคุณ]</div>
+                    <div class="details">
+                        <p><strong>ระดับชั้น:</strong> มัธยมศึกษาปีที่ 4 - 6</p>
+                        <p><strong>แผนการเรียน:</strong> [ใส่สายการเรียน เช่น วิทย์-คณิต / ศิลป์-คำนวณ / คอมพิวเตอร์]</p>
+                        <p><strong>เกรดเฉลี่ยสะสม (GPAX):</strong> [ใส่เกรดเฉลี่ย เช่น 3.XX] (ถ้ามี)</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="year">ปีการศึกษา 2563 - 2565</div>
+                    <div class="school-name">โรงเรียน [พานทอง]</div>
+                    <div class="details">
+                        <p><strong>ระดับชั้น:</strong> มัธยมศึกษาปีที่ 6 </p>
+                        <p><strong>เกรดเฉลี่ยสะสม (GPAX):</strong> [ใส่เกรดเฉลี่ย เช่น 3.00]</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="year">ปีการศึกษา 2557 - 2562</div>
+                    <div class="school-name">โรงเรียน [วัดดอนดำรงธรรม]</div>
+                    <div class="details">
+                        <p><strong>ระดับชั้น:</strong> ประถมศึกษาปีที่ 1 - 6</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <a href="index.html" class="btn-back">⬅ กลับหน้าแรก</a>
+        </div>
+    </div>
+
+    <footer style="margin-top: 50px;">
+        <p>&copy; 2026 พอร์ตโฟลิโอ ม.6 | สร้างด้วย GitHub Pages</p>
+    </footer>
+
+</body>
+</html>
