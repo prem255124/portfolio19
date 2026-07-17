@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ข้อมูลส่วนตัว | My Portfolio</title>
+    <style>
+        /* ตั้งค่าโทนสีหลัก (ฟ้า-ทอง) */
+        :root {
+            --primary-blue: #003366;    /* ฟ้าเข้ม */
+            --light-blue: #e6f0fa;      /* ฟ้าอ่อนสำหรับพื้นหลัง */
+            --gold: #D4AF37;            /* ทอง */
+            --dark-gold: #AA7C11;       /* ทองเข้ม */
+            --text-dark: #333333;       /* สีตัวหนังสือทั่วไป */
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-blue);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* แถบเมนูด้านบน */
+        header {
+            background-color: var(--primary-blue);
+            border-bottom: 3px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            color: var(--gold);
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        /* ส่วนเนื้อหา */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 8px solid var(--primary-blue);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .info-item {
+            background: #fcfcfc;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .info-item strong {
+            color: var(--primary-blue);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .btn-back {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--primary-blue);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-back:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* ท้ายเว็บ */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            border-top: 2px solid var(--gold);
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">MY PORTFOLIO</a>
+            <ul>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="index.html#about">เกี่ยวกับฉัน</a></li>
+                <li><a href="index.html#projects">ผลงาน</a></li>
+                <li><a href="index.html#skills">ทักษะ</a></li>
+                <li><a href="index.html#contact">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="profile-card">
+            <h1>ข้อมูลส่วนตัวเชิงลึก (Personal Information)</h1>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>ชื่อ-นามสกุล (ภาษาไทย)</strong>
+                    [ธิดารัตน์ กลื่นทอง]
+                </div>
+                <div class="info-item">
+                    <strong>ชื่อภาษาอังกฤษ</strong>
+                    [Firstname - Lastname]
+                </div>
+                <div class="info-item">
+                    <strong>x]ชื่อเล่น</strong>
+                    [ปลื้มเปรม]
+                </div>
+                <div class="info-item">
+                    <strong>วันเกิด</strong>
+                    [วันที่19 เดือนกรกฎาคม พ.ศ.2551 เกิด]
+                </div>
+                <div class="info-item">
+                    <strong>สัญชาติ / ศาสนา</strong>
+                    ไทย / [ศาสพุทธ]
+                </div>
+                <div class="info-item">
+                    <strong>แผนการเรียน</strong>
+                    [สายการเรียน วิทย์-คณิต ]
+                </div>
+                <div class="info-item">
+                    <strong>งานอดิเรก</strong>
+                    [เช่น เขียนโค้ด, อ่านหนังสือ, เล่นเกม, ออกกำลังกาย]
+                </div>
+                <div class="info-item">
+                    <strong>คติประจำใจ</strong>
+                    "[วันนี้คือพรุ่งนี้ของเมื่อวาน]"
+                </div>
+            </div>
+
+            <a href="index.html" class="btn-back">⬅ กลับหน้าแรก</a>
+        </div>
+    </div>
+
+    <footer style="position: relative; margin-top: 50px;">
+        <p>&copy; 2026 พอร์ตโฟลิโอ ม.6 | สร้างด้วย GitHub Pages</p>
+    </footer>
+
+</body>
+</html>
