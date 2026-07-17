@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กิจกรรมและจิตอาสา | My Portfolio</title>
+    <style>
+        /* ตั้งค่าโทนสีหลัก (ฟ้า-ทอง) */
+        :root {
+            --primary-blue: #003366;    /* ฟ้าเข้ม */
+            --light-blue: #e6f0fa;      /* ฟ้าอ่อนสำหรับพื้นหลัง */
+            --gold: #D4AF37;            /* ทอง */
+            --dark-gold: #AA7C11;       /* ทองเข้ม */
+            --text-dark: #333333;       /* สีตัวหนังสือทั่วไป */
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-blue);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* แถบเมนูด้านบน */
+        header {
+            background-color: var(--primary-blue);
+            border-bottom: 3px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            color: var(--gold);
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        /* ส่วนเนื้อหา */
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .activities-card {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 8px solid var(--primary-blue);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        /* โครงสร้างการ์ดกิจกรรม */
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .activity-item {
+            background: #fbfcfd;
+            border: 1px solid #e1e8ed;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .activity-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,31,63,0.15);
+        }
+
+        /* ส่วนรูปภาพจำลอง (สามารถนำภาพจริงมาใส่แทนได้) */
+        .activity-img {
+            width: 100%;
+            height: 200px;
+            background-color: #ccd9e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-blue);
+            font-weight: bold;
+            font-size: 14px;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .activity-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .activity-content {
+            padding: 20px;
+        }
+
+        .activity-date {
+            font-size: 13px;
+            color: var(--dark-gold);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .activity-title {
+            color: var(--primary-blue);
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .activity-detail {
+            font-size: 14px;
+            color: #555555;
+            margin-bottom: 10px;
+        }
+
+        .activity-role {
+            font-size: 14px;
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 4px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .btn-back {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--primary-blue);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-back:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* ท้ายเว็บ */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            border-top: 2px solid var(--gold);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">MY PORTFOLIO</a>
+            <ul>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="index.html#about">เกี่ยวกับฉัน</a></li>
+                <li><a href="index.html#projects">ผลงาน</a></li>
+                <li><a href="index.html#skills">ทักษะ</a></li>
+                <li><a href="index.html#contact">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="activities-card">
+            <h1>กิจกรรมและงานจิตอาสา (Activities & Volunteering)</h1>
+            
+            <div class="activity-grid">
+                
+                <div class="activity-item">
+                    <div class="activity-img">
+                        [ พื้นที่สำหรับใส่รูปภาพกิจกรรมที่ 1 ]
+                    </div>
+                    <div class="activity-content">
+                        <div class="activity-date">📅 สิงหาคม 2568</div>
+                        <div class="activity-title">กิจกรรม [ใส่ชื่อกิจกรรม เช่น ค่ายเปิดโลกวิชาการคอมพิวเตอร์]</div>
+                        <div class="activity-detail">อธิบายรายละเอียดของกิจกรรมย่อ ๆ ว่าทำอะไร ที่ไหน และส่งผลดีหรือให้ประสบการณ์อะไรแก่เราบ้าง</div>
+                        <div class="activity-role">บทบาท: เข้าร่วมโครงการ</div>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-img">
+                        [ พื้นที่สำหรับใส่รูปภาพกิจกรรมที่ 2 ]
+                    </div>
+                    <div class="activity-content">
+                        <div class="activity-date">📅 พฤศจิกายน 2568</div>
+                        <div class="activity-title">กิจกรรมจิตอาสา [ใส่ชื่อกิจกรรม เช่น พัฒนาชุมชน/โรงเรียน]</div>
+                        <div class="activity-detail">อธิบายถึงงานจิตอาสาที่เราทำ ความเสียสละ และสิ่งที่ได้เรียนรู้จากการช่วยเหลือสังคมร่วมกับผู้อื่น</div>
+                        <div class="activity-role">บทบาท: แกนนำกลุ่ม / อาสาสมัคร</div>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-img">
+                        [ พื้นที่สำหรับใส่รูปภาพกิจกรรมที่ 3 ]
+                    </div>
+                    <div class="activity-content">
+                        <div class="activity-date">📅 มกราคม 2569</div>
+                        <div class="activity-title">กิจกรรม [ใส่ชื่อกิจกรรม เช่น กีฬาสี/สภานักเรียน]</div>
+                        <div class="activity-detail">อธิบายหน้าที่ความรับผิดชอบในโรงเรียนที่นอกเหนือจากการเรียนในห้องเรียนปกติ เช่น การทำงานร่วมกันเป็นทีม</div>
+                        <div class="activity-role">บทบาท: คณะกรรมการฝ่ายสถานที่</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <a href="index.html" class="btn-back">⬅ กลับหน้าแรก</a>
+        </div>
+    </div>
+
+    <footer style="margin-top: 50px;">
+        <p>&copy; 2026 พอร์ตโฟลิโอ ม.6 | สร้างด้วย GitHub Pages</p>
+    </footer>
+
+</body>
+</html>
