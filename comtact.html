@@ -1,0 +1,268 @@
+นี่คือโค้ดสำหรับไฟล์ contact.html (หน้าติดต่อฉัน) ในโทนสีฟ้า-ทองครับ หน้าชิ้นนี้ถูกออกแบบมาเพื่อรวบรวมช่องทางการติดต่ออย่างเป็นทางการสำหรับส่งให้คณะกรรมการหรืออาจารย์ในมหาวิทยาลัย โดยมีลิงก์และไอคอนข้อความที่อ่านง่าย และปุ่มส่งอีเมล (Mailto) ที่สามารถกดแล้วเด้งไปหน้าส่งข้อความได้ทันทีครับ
+
+คุณสามารถก๊อปปี้โค้ดทั้งหมดนี้ไปสร้างไฟล์ใหม่บน GitHub โดยตั้งชื่อไฟล์ว่า contact.html ได้เลยครับ:
+
+HTML
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ช่องทางการติดต่อ | My Portfolio</title>
+    <style>
+        /* ตั้งค่าโทนสีหลัก (ฟ้า-ทอง) */
+        :root {
+            --primary-blue: #003366;    /* ฟ้าเข้ม */
+            --light-blue: #e6f0fa;      /* ฟ้าอ่อนสำหรับพื้นหลัง */
+            --gold: #D4AF37;            /* ทอง */
+            --dark-gold: #AA7C11;       /* ทองเข้ม */
+            --text-dark: #333333;       /* สีตัวหนังสือทั่วไป */
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-blue);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* แถบเมนูด้านบน */
+        header {
+            background-color: var(--primary-blue);
+            border-bottom: 3px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            color: var(--gold);
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        /* ส่วนเนื้อหา */
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .contact-card {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 8px solid var(--primary-blue);
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .contact-intro {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        /* รายการช่องทางติดต่อ */
+        .contact-list {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background: #f8fafc;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--gold);
+        }
+
+        .contact-icon {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+
+        .contact-details h3 {
+            font-size: 14px;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-details p {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .contact-details a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .contact-details a:hover {
+            color: var(--dark-gold);
+        }
+
+        /* ปุ่มหลักในการติดต่อ */
+        .btn-email {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: 0.3s;
+            border: 2px solid var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .btn-email:hover {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            border-color: var(--gold);
+            box-shadow: 0 4px 10px rgba(0, 51, 102, 0.2);
+        }
+
+        .btn-back {
+            display: inline-block;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            transition: 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-back:hover {
+            color: var(--dark-gold);
+            text-decoration: underline;
+        }
+
+        /* ท้ายเว็บ */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            border-top: 2px solid var(--gold);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">MY PORTFOLIO</a>
+            <ul>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="index.html#about">เกี่ยวกับฉัน</a></li>
+                <li><a href="index.html#projects">ผลงาน</a></li>
+                <li><a href="index.html#skills">ทักษะ</a></li>
+                <li><a href="index.html#contact">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="contact-card">
+            <h1>ช่องทางการติดต่อ (Contact)</h1>
+            <p class="contact-intro">หากคณะกรรมการหรืออาจารย์ต้องการสอบถามข้อมูลเพิ่มเติม สามารถติดต่อผม/ดิฉันได้ตามช่องทางด้านล่างนี้ตลอดเวลาครับ/ค่ะ</p>
+            
+            <div class="contact-list">
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p><a href="mailto:yourname@gmail.com">yourname@gmail.com</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-details">
+                        <h3>Telephone</h3>
+                        <p>0xx-xxx-xxxx</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-details">
+                        <h3>Address / School</h3>
+                        <p>โรงเรียน [พานทอง], จังหวัด [ชลบุรี]</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🌐</div>
+                    <div class="contact-details">
+                        <h3>Social Media / Line</h3>
+                        <p>Line ID: [-] / Facebook: [PE RM]</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <a href="mailto:yourname@gmail.com" class="btn-email">ส่งอีเมลหาฉันโดยตรง</a>
+            <br>
+            <a href="index.html" class="btn-back">⬅ กลับสู่หน้าหลัก</a>
+        </div>
+    </div>
+
+    <footer style="margin-top: 50px;">
+        <p>&copy; 2026 พอร์ตโฟลิโอ ม.6 | สร้างด้วย GitHub Pages</p>
+    </footer>
+
+</body>
+</html>
