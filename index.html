@@ -1,1 +1,287 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | ม.6</title>
+    <style>
+        /* ตั้งค่าโทนสีหลัก (ฟ้า-ทอง) */
+        :root {
+            --primary-blue: #003366;    /* ฟ้าเข้ม */
+            --light-blue: #e6f0fa;      /* ฟ้าอ่อนสำหรับพื้นหลัง */
+            --gold: #D4AF37;            /* ทอง */
+            --dark-gold: #AA7C11;       /* ทองเข้ม */
+            --text-dark: #333333;       /* สีตัวหนังสือทั่วไป */
+            --white: #ffffff;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-blue);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* แถบเมนูด้านบน */
+        header {
+            background-color: var(--primary-blue);
+            border-bottom: 3px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            color: var(--gold);
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        /* ส่วนเนื้อหาแต่ละหน้า */
+        section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            font-size: 32px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--gold);
+            padding-left: 10px;
+        }
+
+        /* หน้าที่ 1: หน้าแรก (Home) */
+        #home {
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #001f3f 100%);
+            color: var(--white);
+            max-width: 100%;
+            border-bottom: 5px solid var(--gold);
+        }
+
+        #home h1 {
+            font-size: 48px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        #home p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--primary-blue);
+            padding: 10px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            box-shadow: 0 0 15px var(--gold);
+        }
+
+        /* หน้าที่ 2: เกี่ยวกับฉัน (About) */
+        .about-container {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* หน้าที่ 3: ผลงาน (Projects) */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            border-top: 4px solid var(--gold);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* หน้าที่ 4: ทักษะ (Skills) */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-item {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: 1px solid var(--gold);
+            font-weight: 500;
+        }
+
+        /* หน้าที่ 5: ติดต่อ (Contact) */
+        .contact-info {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-blue);
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .contact-info strong {
+            color: var(--dark-gold);
+        }
+
+        /* ท้ายเว็บ */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            border-top: 2px solid var(--gold);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#home" class="logo">MY PORTFOLIO</a>
+            <ul>
+                <li><a href="#home">หน้าแรก</a></li>
+                <li><a href="#about">เกี่ยวกับฉัน</a></li>
+                <li><a href="#projects">ผลงาน</a></li>
+                <li><a href="#skills">ทักษะ</a></li>
+                <li><a href="#contact">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>สวัสดีครับ/ค่ะ, ยินดีต้อนรับ</h1>
+        <p>เว็บพอร์ตโฟลิโอรวบรวมผลงานระดับชั้น ม.6 ของฉัน</p>
+        <div>
+            <a href="#about" class="btn">ทำความรู้จักกันเลย</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>1. เกี่ยวกับฉัน (About Me)</h2>
+        <div class="about-container">
+            <p><strong>ชื่อ-นามสกุล:</strong> [ธิดารัตน์ กลิ่นทอง]</p>
+            <p><strong>กำลังศึกษาอยู่ชั้น:</strong> มัธยมศึกษาปีที่ 6 แผนการเรียน [วิทย์-คณิต]</p>
+            <p><strong>โรงเรียน:</strong> [พานทอง]</p>
+            <br>
+            <p><strong>เป้าหมายการศึกษา:</strong> มีความตั้งใจที่จะเข้าศึกษาต่อในระดับมหาวิทยาลัย คณะ [นิติศาสตร์] สาขา [กฎหมายอาญา] เพราะมีความสนใจในด้านนี้และต้องการนำความรู้ไปต่อยอดในอนาคต</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>2. ผลงานและโครงงาน (Projects)</h2>
+        <p>นี่คือผลงานเด่น ๆ ที่ได้ทำระหว่างเรียนระดับมัธยมปลายครับ/ค่ะ</p>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>โครงงาน/ผลงานชิ้นที่ 1</h3>
+                <p>คำอธิบายสั้น ๆ เกี่ยวกับโครงงาน ทำอะไร ได้ผลลัพธ์อย่างไร และใช้เครื่องมืออะไรทำ</p>
+            </div>
+            <div class="project-card">
+                <h3>กิจกรรม/เกียรติบัตรที่ 2</h3>
+                <p>การเข้าร่วมแข่งขัน ค่ายวิชาการ หรือรางวัลที่เคยได้รับในโรงเรียนหรือภายนอก</p>
+            </div>
+            <div class="project-card">
+                <h3>ผลงาน/กิจกรรมที่ 3</h3>
+                <p>งานกลุ่ม งานจิตอาสา หรือกิจกรรมสภานักเรียนที่เคยเข้าร่วม</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>3. ทักษะและความสามารถ (Skills)</h2>
+        <p>ความสามารถและโปรแกรมต่าง ๆ ที่สามารถใช้งานได้</p>
+        <div class="skills-list">
+            <div class="skill-item">HTML / CSS (พื้นฐาน)</div>
+            <div class="skill-item">Canva / Photoshop</div>
+            <div class="skill-item">Microsoft Office</div>
+            <div class="skill-item">การทำงานเป็นทีม</div>
+            <div class="skill-item">การคิดสร้างสรรค์</div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>4. ช่องทางการติดต่อ (Contact)</h2>
+        <div class="contact-info">
+            <p><strong>Email:</strong> yourname@gmail.com</p>
+            <p><strong>Facebook / IG:</strong> [ใส่ชื่อบัญชีของคุณ]</p>
+            <p><strong>เบอร์โทรศัพท์:</strong> 0651856855</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 พอร์ตโฟลิโอ ม.6 ยื่นเข้ามหาวิทยาลัย | สร้างด้วย GitHub Pages</p>
+    </footer>
+
+</body>
+</html>
