@@ -3,270 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>กิจกรรมและจิตอาสา | My Portfolio</title>
+    <title>Activities | กิจกรรมและผลงาน</title>
     <style>
-        /* ตั้งค่าโทนสีหลัก (ฟ้า-ทอง) */
-        :root {
-            --primary-blue: #003366;    /* ฟ้าเข้ม */
-            --light-blue: #e6f0fa;      /* ฟ้าอ่อนสำหรับพื้นหลัง */
-            --gold: #D4AF37;            /* ทอง */
-            --dark-gold: #AA7C11;       /* ทองเข้ม */
-            --text-dark: #333333;       /* สีตัวหนังสือทั่วไป */
-            --white: #ffffff;
-        }
-
+        /* --- Reset & Base Settings --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--light-blue);
-            color: var(--text-dark);
-            line-height: 1.6;
+            background: linear-gradient(135deg, #1a0b2e, #311b92, #880e4f, #ff4081, #f48fb1);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* แถบเมนูด้านบน */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- Header หรูหราโปร่งแสง --- */
         header {
-            background-color: var(--primary-blue);
-            border-bottom: 3px solid var(--gold);
+            background: rgba(26, 11, 46, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 2px solid rgba(255, 64, 129, 0.5);
             position: sticky;
             top: 0;
             z-index: 1000;
-        }
-
-        nav {
+            padding: 18px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 15px 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
         }
 
         .logo {
-            color: var(--gold);
+            color: #ff4081;
+            font-weight: 900;
             font-size: 24px;
-            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(255, 64, 129, 0.8);
+        }
+
+        nav a {
+            color: #ffffff;
             text-decoration: none;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 20px;
-        }
-
-        nav ul li a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: var(--gold);
-        }
-
-        /* ส่วนเนื้อหา */
-        .container {
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 20px;
-        }
-
-        .activities-card {
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-top: 8px solid var(--primary-blue);
-            padding: 40px;
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            color: var(--primary-blue);
-            border-bottom: 2px solid var(--gold);
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-            font-size: 28px;
-        }
-
-        /* โครงสร้างการ์ดกิจกรรม */
-        .activity-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .activity-item {
-            background: #fbfcfd;
-            border: 1px solid #e1e8ed;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: 0.3s;
-        }
-
-        .activity-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,31,63,0.15);
-        }
-
-        /* ส่วนรูปภาพจำลอง (สามารถนำภาพจริงมาใส่แทนได้) */
-        .activity-img {
-            width: 100%;
-            height: 200px;
-            background-color: #ccd9e8;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--primary-blue);
-            font-weight: bold;
+            margin-left: 25px;
+            font-weight: 600;
             font-size: 14px;
-            border-bottom: 3px solid var(--gold);
+            letter-spacing: 1px;
+            transition: 0.3s;
         }
 
-        .activity-img img {
+        nav a:hover {
+            color: #ff4081;
+            text-shadow: 0 0 10px rgba(255, 64, 129, 0.6);
+        }
+
+        /* --- Main Content Section --- */
+        section {
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        /* กล่องกระจกแก้วหรูหราเรืองแสง */
+        .premium-card {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 50px 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 
+                        0 0 40px rgba(255, 64, 129, 0.2);
+            max-width: 850px;
             width: 100%;
-            height: 100%;
+            z-index: 10;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #ff4081, #00e5ff, #8e24aa);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #ffffff, #f48fb1, #ff4081);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #b39ddb;
+            margin-bottom: 35px;
+        }
+
+        /* --- โครงสร้างอัลบั้มรูปภาพกิจกรรม (Grid Gallery) --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            width: 100%;
+        }
+
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .gallery-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 64, 129, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 64, 129, 0.2);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 180px;
             object-fit: cover;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .activity-content {
-            padding: 20px;
+        .gallery-info {
+            padding: 15px;
+            text-align: left;
         }
 
-        .activity-date {
-            font-size: 13px;
-            color: var(--dark-gold);
+        .gallery-title {
+            font-size: 1.1rem;
             font-weight: bold;
+            color: #ff4081;
             margin-bottom: 5px;
         }
 
-        .activity-title {
-            color: var(--primary-blue);
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
+        .gallery-desc {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+            line-height: 1.4;
         }
 
-        .activity-detail {
-            font-size: 14px;
-            color: #555555;
-            margin-bottom: 10px;
-        }
-
-        .activity-role {
-            font-size: 14px;
-            background-color: var(--light-blue);
-            color: var(--primary-blue);
-            padding: 4px 10px;
-            border-radius: 5px;
+        /* ปุ่มกลับหน้าแรกพลังนีออน */
+        .btn-glow {
             display: inline-block;
-            font-weight: 500;
-        }
-
-        .btn-back {
-            display: inline-block;
-            background-color: var(--gold);
-            color: var(--primary-blue);
-            padding: 10px 20px;
+            background: linear-gradient(90deg, #ff4081, #8e24aa);
+            color: #ffffff;
+            padding: 14px 35px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 25px;
-            transition: 0.3s;
-            margin-top: 10px;
-        }
-
-        .btn-back:hover {
-            background-color: var(--primary-blue);
-            color: var(--white);
-        }
-
-        /* ท้ายเว็บ */
-        footer {
-            background-color: var(--primary-blue);
-            color: var(--white);
+            font-weight: 700;
             text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            border-top: 2px solid var(--gold);
+            margin-top: 40px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 20px rgba(255, 64, 129, 0.4);
+            transition: all 0.4s ease;
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 35px rgba(255, 64, 129, 0.8);
+            transform: translateY(-4px);
+        }
+
+        /* --- เอฟเฟกต์ ❄️ และ 🤍 ตกหล่น --- */
+        .falling-element {
+            position: absolute;
+            top: -20px;
+            pointer-events: none;
+            animation: fall linear forwards;
+            color: rgba(255, 255, 255, 0.9);
+            user-select: none;
+            z-index: 1;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(360deg);
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- แถบเมนูด้านบน -->
     <header>
+        <div class="logo">MY SPACE ❄️🤍</div>
         <nav>
-            <a href="index.html" class="logo">MY PORTFOLIO</a>
-            <ul>
-                <li><a href="index.html">หน้าแรก</a></li>
-                <li><a href="index.html#about">เกี่ยวกับฉัน</a></li>
-                <li><a href="index.html#projects">ผลงาน</a></li>
-                <li><a href="index.html#skills">ทักษะ</a></li>
-                <li><a href="index.html#contact">ติดต่อ</a></li>
-            </ul>
+            <a href="index.html">Home</a>
+            <a href="personal.html">Profile</a>
+            <a href="education.html">Education</a>
+            <a href="activities.html" style="color: #ff4081;">Activities</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
-    <div class="container">
-        <div class="activities-card">
-            <h1>กิจกรรมและงานจิตอาสา (Activities & Volunteering)</h1>
+    <!-- ส่วนเนื้อหาหลัก -->
+    <section>
+        <div class="premium-card">
+            <h2>MY ACTIVITIES 🏆</h2>
+            <div class="subtitle">ภาพกิจกรรมเด่นและการเข้าร่วมผลงานต่างๆ ในรั้วโรงเรียน</div>
             
-            <div class="activity-grid">
-                
-                <div class="activity-item">
-                    <div class="activity-img">
-                        [ พื้นที่สำหรับใส่รูปภาพกิจกรรมที่ 1 ]
-                    </div>
-                    <div class="activity-content">
-                        <div class="activity-date">📅 สิงหาคม 2568</div>
-                        <div class="activity-title">กิจกรรม [ใส่ชื่อกิจกรรม เช่น ค่ายเปิดโลกวิชาการคอมพิวเตอร์]</div>
-                        <div class="activity-detail">อธิบายรายละเอียดของกิจกรรมย่อ ๆ ว่าทำอะไร ที่ไหน และส่งผลดีหรือให้ประสบการณ์อะไรแก่เราบ้าง</div>
-                        <div class="activity-role">บทบาท: เข้าร่วมโครงการ</div>
+            <div class="gallery-grid">
+                <!-- กิจกรรมที่ 1 -->
+                <div class="gallery-item">
+                    <img src="https://squarespace-cdn.com" alt="กิจกรรมที่ 1" class="gallery-img">
+                    <div class="gallery-info">
+                        <div class="gallery-title">เข้ารับเกียรติบัตรโรงเรียนพานทอง</div>
+                        <div class="gallery-desc">ภาพกิจกรรมเด่นเนื่องในงานวันที่ 1 สิงหาคม 2568 ณ โรงเรียนพานทอง [ เป็นกิจกรรมสร้างจรวดด้วยขวดน้ำได้รางวัลรองชนะเลิศลำดับ1 ]</div>
                     </div>
                 </div>
 
-                <div class="activity-item">
-                    <div class="activity-img">
-                        [ พื้นที่สำหรับใส่รูปภาพกิจกรรมที่ 2 ]
-                    </div>
-                    <div class="activity-content">
-                        <div class="activity-date">📅 พฤศจิกายน 2568</div>
-                        <div class="activity-title">กิจกรรมจิตอาสา [ใส่ชื่อกิจกรรม เช่น พัฒนาชุมชน/โรงเรียน]</div>
-                        <div class="activity-detail">อธิบายถึงงานจิตอาสาที่เราทำ ความเสียสละ และสิ่งที่ได้เรียนรู้จากการช่วยเหลือสังคมร่วมกับผู้อื่น</div>
-                        <div class="activity-role">บทบาท: แกนนำกลุ่ม / อาสาสมัคร</div>
+                <!-- กิจกรรมที่ 2 -->
+                <div class="gallery-item">
+                    <img src="https://squarespace-cdn.com" alt="กิจกรรมที่ 2" class="gallery-img">
+                    <div class="gallery-info">
+                        <div class="gallery-title">การแข่งขันงานกีฬาสี โรงเรียนพานทอง</div>
+                        <div class="gallery-desc">ภาพความประทับใจจากการเข้าร่วมแข่งขันในงานกีฬาสี เมื่อวันที่ 11 กันยายน 2568 ได้รับรางวัลรองชนะเลิศอันดับ 2 (เหรียญทองแดง) !</div>
                     </div>
                 </div>
 
-                <div class="activity-item">
-                    <div class="activity-img">
-                        [ พื้นที่สำหรับใส่รูปภาพกิจกรรมที่ 3 ]
-                    </div>
-                    <div class="activity-content">
-                        <div class="activity-date">📅 มกราคม 2569</div>
-                        <div class="activity-title">กิจกรรม [ใส่ชื่อกิจกรรม เช่น กีฬาสี/สภานักเรียน]</div>
-                        <div class="activity-detail">อธิบายหน้าที่ความรับผิดชอบในโรงเรียนที่นอกเหนือจากการเรียนในห้องเรียนปกติ เช่น การทำงานร่วมกันเป็นทีม</div>
-                        <div class="activity-role">บทบาท: คณะกรรมการฝ่ายสถานที่</div>
+                <!-- กิจกรรมที่ 3 -->
+                <div class="gallery-item">
+                    <img src="https://squarespace-cdn.com" alt="กิจกรรมที่ 3" class="gallery-img">
+                    <div class="gallery-info">
+                        <div class="gallery-title">ร่วมขบวนแห่ งานประเพณีบุญกองข้าว</div>
+                        <div class="gallery-desc">ภาพการเป็นตัวแทนเข้าร่วมเดินขบวนและถือป้ายประชาสัมพันธ์ในงานประเพณีบุญกองข้าว งานประจำปีประจำท้องถิ่น เมื่อวันที่ 3 เมษายน 2569 ค่ะ</div>
                     </div>
                 </div>
 
+                <!-- กิจกรรมที่ 4 (รูปภาพศึกษาดูงานใหม่ล่าสุดที่เพิ่มเข้ามาครับ) -->
+                <div class="gallery-item">
+                    <img src="https://squarespace-cdn.com" alt="กิจกรรมที่ 4" class="gallery-img">
+                    <div class="gallery-info">
+                        <div class="gallery-title">ศึกษาดูงาน ณ โรงไฟฟ้าบางปะกง</div>
+                        <div class="gallery-desc">เปิดประสบการณ์โลกแห่งการเรียนรู้นอกห้องเรียน เข้าร่วมศึกษาดูงานกระบวนการผลิตพลังงานไฟฟ้า ณ โรงไฟฟ้าบางปะกง เมื่อวันที่ 4 กรกฎาคม 2569 ได้ความรู้เพียบเลยค่ะ</div>
+                    </div>
+                </div>
             </div>
 
-            <a href="index.html" class="btn-back">⬅ กลับหน้าแรก</a>
+            <!-- ปุ่มกลับหน้าแรกนุ่มนวล -->
+            <a href="index.html" class="btn-glow">BACK TO HOME ✨</a>
         </div>
-    </div>
+    </section>
 
-    <footer style="margin-top: 50px;">
-        <p>&copy; 2026 พอร์ตโฟลิโอ ม.6 | สร้างด้วย GitHub Pages</p>
-    </footer>
-
-</body>
-</html>
+    <!-- สคริปต์ทำหิมะและหัวใจตก -->
+    <script>
+        const elements = ['❄️', '🤍'];
+        function createFallingElement() {
