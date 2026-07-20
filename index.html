@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio | ม.6</title>
     <style>
+        /* --- ตั้งค่าเริ่มต้น --- */
         * {
             margin: 0;
             padding: 0;
@@ -14,7 +15,7 @@
         }
 
         body {
-            /* ธีมสีม่วง-ชมพู */
+            /* เฉดสีม่วง-ชมพูตามสั่ง */
             background: linear-gradient(135deg, #3d1e6d, #8e24aa, #d81b60, #f48fb1);
             background-size: 400% 400%;
             animation: gradientBG 12s ease infinite;
@@ -30,6 +31,7 @@
             100% { background-position: 0% 50%; }
         }
 
+        /* --- แถบเมนูด้านบน --- */
         header {
             background: rgba(61, 30, 109, 0.7);
             backdrop-filter: blur(10px);
@@ -48,6 +50,7 @@
             color: #f48fb1;
             font-weight: bold;
             font-size: 22px;
+            text-shadow: 0 0 10px rgba(244, 143, 177, 0.6);
         }
 
         nav a {
@@ -57,6 +60,7 @@
             font-weight: 500;
         }
 
+        /* --- กล่องเนื้อหาการ์ดโปร่งแสง --- */
         section {
             padding: 80px 20px;
             display: flex;
@@ -85,11 +89,12 @@
         }
 
         .profile-img {
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
             object-fit: cover;
             border-radius: 50%;
             border: 4px solid #f48fb1;
+            box-shadow: 0 0 20px rgba(244, 143, 177, 0.6);
         }
 
         h1 {
@@ -97,7 +102,7 @@
             margin-bottom: 10px;
         }
 
-        .hero-section p {
+        p {
             font-size: 1.2rem;
             color: #f48fb1;
             margin-bottom: 30px;
@@ -111,6 +116,7 @@
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         /* --- เอฟเฟกต์ ❄️ และ 🤍 หล่นลงมา --- */
@@ -135,13 +141,16 @@
 
     <header>
         <div class="logo">PORTFOLIO ❄️🤍</div>
+        <nav>
+            <a href="#home">หน้าแรก</a>
+        </nav>
     </header>
 
-    <section id="home" class="hero-section">
+    <section id="home">
         <div class="content-card">
             <div class="profile-container">
-                <!-- ดึงรูปจากใน GitHub หากน้องอัปโหลดไว้ ให้เปลี่ยนชื่อไฟล์ตรง src ให้ตรงกันครับ -->
-                <img src="profile.jpg" alt="รูปภาพโปรไฟล์" class="profile-img">
+                <!-- พี่ใส่ลิงก์รูปภาพนักเรียนของน้องไว้ให้ในนี้เรียบร้อยแล้วครับ -->
+                <img src="https://squarespace-cdn.com" alt="รูปภาพโปรไฟล์" class="profile-img">
             </div>
             <h1>ยินดีต้อนรับสู่เว็บไซต์ของฉัน 🤍</h1>
             <p>แฟ้มสะสมผลงานระดับชั้น ม.6 ของฉัน</p>
@@ -149,6 +158,7 @@
         </div>
     </section>
 
+    <!-- สคริปต์ทำหิมะและหัวใจตก -->
     <script>
         const elements = ['❄️', '🤍'];
         function createFallingElement() {
