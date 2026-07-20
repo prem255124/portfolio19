@@ -1,268 +1,283 @@
-นี่คือโค้ดสำหรับไฟล์ contact.html (หน้าติดต่อฉัน) ในโทนสีฟ้า-ทองครับ หน้าชิ้นนี้ถูกออกแบบมาเพื่อรวบรวมช่องทางการติดต่ออย่างเป็นทางการสำหรับส่งให้คณะกรรมการหรืออาจารย์ในมหาวิทยาลัย โดยมีลิงก์และไอคอนข้อความที่อ่านง่าย และปุ่มส่งอีเมล (Mailto) ที่สามารถกดแล้วเด้งไปหน้าส่งข้อความได้ทันทีครับ
-
-คุณสามารถก๊อปปี้โค้ดทั้งหมดนี้ไปสร้างไฟล์ใหม่บน GitHub โดยตั้งชื่อไฟล์ว่า contact.html ได้เลยครับ:
-
-HTML
 <!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ช่องทางการติดต่อ | My Portfolio</title>
+    <title>Contact Me | ช่องทางการติดต่อ</title>
     <style>
-        /* ตั้งค่าโทนสีหลัก (ฟ้า-ทอง) */
-        :root {
-            --primary-blue: #003366;    /* ฟ้าเข้ม */
-            --light-blue: #e6f0fa;      /* ฟ้าอ่อนสำหรับพื้นหลัง */
-            --gold: #D4AF37;            /* ทอง */
-            --dark-gold: #AA7C11;       /* ทองเข้ม */
-            --text-dark: #333333;       /* สีตัวหนังสือทั่วไป */
-            --white: #ffffff;
-        }
-
+        /* --- Reset & Base Settings --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--light-blue);
-            color: var(--text-dark);
-            line-height: 1.6;
+            background: linear-gradient(135deg, #1a0b2e, #311b92, #880e4f, #ff4081, #f48fb1);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* แถบเมนูด้านบน */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- Header หรูหราโปร่งแสง --- */
         header {
-            background-color: var(--primary-blue);
-            border-bottom: 3px solid var(--gold);
+            background: rgba(26, 11, 46, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 2px solid rgba(255, 64, 129, 0.5);
             position: sticky;
             top: 0;
             z-index: 1000;
-        }
-
-        nav {
+            padding: 18px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 15px 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
         }
 
         .logo {
-            color: var(--gold);
+            color: #ff4081;
+            font-weight: 900;
             font-size: 24px;
-            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(255, 64, 129, 0.8);
+        }
+
+        nav a {
+            color: #ffffff;
             text-decoration: none;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 20px;
-        }
-
-        nav ul li a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 16px;
+            margin-left: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
             transition: 0.3s;
         }
 
-        nav ul li a:hover {
-            color: var(--gold);
+        nav a:hover {
+            color: #ff4081;
+            text-shadow: 0 0 10px rgba(255, 64, 129, 0.6);
         }
 
-        /* ส่วนเนื้อหา */
-        .container {
-            max-width: 700px;
-            margin: 50px auto;
-            padding: 20px;
+        /* --- Main Content Section --- */
+        section {
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
         }
 
-        .contact-card {
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-top: 8px solid var(--primary-blue);
-            padding: 40px;
+        /* กล่องกระจกแก้วหรูหราเรืองแสง */
+        .premium-card {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 50px 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 
+                        0 0 40px rgba(255, 64, 129, 0.2);
+            max-width: 600px;
+            width: 100%;
+            z-index: 10;
+            position: relative;
+            overflow: hidden;
             text-align: center;
         }
 
-        h1 {
-            color: var(--primary-blue);
-            border-bottom: 2px solid var(--gold);
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-            font-size: 28px;
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #ff4081, #00e5ff, #8e24aa);
         }
 
-        .contact-intro {
-            font-size: 16px;
-            margin-bottom: 30px;
-            color: #666;
-        }
-
-        /* รายการช่องทางติดต่อ */
-        .contact-list {
-            text-align: left;
-            margin-bottom: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            background: #f8fafc;
-            padding: 15px 20px;
-            border-radius: 10px;
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #ffffff, #f48fb1, #ff4081);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 15px;
-            border-left: 5px solid var(--gold);
-        }
-
-        .contact-icon {
-            font-size: 24px;
-            margin-right: 15px;
-        }
-
-        .contact-details h3 {
-            font-size: 14px;
-            color: var(--primary-blue);
-            text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .contact-details p {
-            font-size: 16px;
-            font-weight: 500;
+        .subtitle {
+            font-size: 1.1rem;
+            color: #b39ddb;
+            margin-bottom: 35px;
         }
 
-        .contact-details a {
-            color: var(--text-dark);
+        /* --- ปุ่มกดลิงก์โซเชียลมีเดียแบบจึ้ง ๆ --- */
+        .social-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .social-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 18px 25px;
+            border-radius: 15px;
             text-decoration: none;
-            transition: 0.2s;
+            color: #ffffff;
+            font-size: 1.15rem;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        .contact-details a:hover {
-            color: var(--dark-gold);
+        .social-box:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 64, 129, 0.25);
         }
 
-        /* ปุ่มหลักในการติดต่อ */
-        .btn-email {
-            display: inline-block;
-            background-color: var(--primary-blue);
-            color: var(--white);
-            padding: 12px 30px;
+        /* แยกสีไอคอนและขอบตามแบรนด์โซเชียล */
+        .fb:hover { border-color: #1877f2; color: #1877f2; }
+        .ig:hover { border-color: #e1306c; color: #e1306c; }
+        .email:hover { border-color: #00e5ff; color: #00e5ff; }
+        .tel:hover { border-color: #00e676; color: #00e676; }
+
+        .social-icon {
+            font-size: 1.4rem;
+        }
+
+        /* ปุ่มกลับหน้าแรกพลังนีออน */
+        .btn-glow {
+            display: block;
+            background: linear-gradient(90deg, #ff4081, #8e24aa);
+            color: #ffffff;
+            padding: 14px 35px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 25px;
-            transition: 0.3s;
-            border: 2px solid var(--primary-blue);
-            margin-bottom: 15px;
-        }
-
-        .btn-email:hover {
-            background-color: var(--white);
-            color: var(--primary-blue);
-            border-color: var(--gold);
-            box-shadow: 0 4px 10px rgba(0, 51, 102, 0.2);
-        }
-
-        .btn-back {
-            display: inline-block;
-            color: var(--primary-blue);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 15px;
-            transition: 0.2s;
-            margin-top: 10px;
-        }
-
-        .btn-back:hover {
-            color: var(--dark-gold);
-            text-decoration: underline;
-        }
-
-        /* ท้ายเว็บ */
-        footer {
-            background-color: var(--primary-blue);
-            color: var(--white);
+            font-weight: 700;
             text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            border-top: 2px solid var(--gold);
+            margin-top: 40px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 20px rgba(255, 64, 129, 0.4);
+            transition: all 0.4s ease;
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 35px rgba(255, 64, 129, 0.8);
+            transform: translateY(-4px);
+        }
+
+        .thank-you {
+            margin-top: 25px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 2px;
+        }
+
+        /* --- エฟフェกต์ ❄️ และ 🤍 ตกหล่น --- */
+        .falling-element {
+            position: absolute;
+            top: -20px;
+            pointer-events: none;
+            animation: fall linear forwards;
+            color: rgba(255, 255, 255, 0.9);
+            user-select: none;
+            z-index: 1;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(360deg);
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- แถบเมนูด้านบน -->
     <header>
+        <div class="logo">MY SPACE ❄️🤍</div>
         <nav>
-            <a href="index.html" class="logo">MY PORTFOLIO</a>
-            <ul>
-                <li><a href="index.html">หน้าแรก</a></li>
-                <li><a href="index.html#about">เกี่ยวกับฉัน</a></li>
-                <li><a href="index.html#projects">ผลงาน</a></li>
-                <li><a href="index.html#skills">ทักษะ</a></li>
-                <li><a href="index.html#contact">ติดต่อ</a></li>
-            </ul>
+            <a href="index.html">Home</a>
+            <a href="personal.html">Profile</a>
+            <a href="education.html">Education</a>
+            <a href="contact.html" style="color: #ff4081;">Contact</a>
         </nav>
     </header>
 
-    <div class="container">
-        <div class="contact-card">
-            <h1>ช่องทางการติดต่อ (Contact)</h1>
-            <p class="contact-intro">หากคณะกรรมการหรืออาจารย์ต้องการสอบถามข้อมูลเพิ่มเติม สามารถติดต่อผม/ดิฉันได้ตามช่องทางด้านล่างนี้ตลอดเวลาครับ/ค่ะ</p>
+    <!-- ส่วนเนื้อหาหลัก -->
+    <section>
+        <div class="premium-card">
+            <h2>CONTACT ME 📱</h2>
+            <div class="subtitle">ยินดีที่ได้ทำความรู้จัก สามารถติดต่อฉันได้ผ่านช่องทางด้านล่างนี้เลยค่ะ/ครับ</div>
             
-            <div class="contact-list">
-                
-                <div class="contact-item">
-                    <div class="contact-icon">📧</div>
-                    <div class="contact-details">
-                        <h3>Email</h3>
-                        <p><a href="mailto:yourname@gmail.com">yourname@gmail.com</a></p>
-                    </div>
-                </div>
+            <div class="social-container">
+                <!-- ช่องทาง Facebook (เปลี่ยนลิงก์ใน href และชื่อเฟซบุ๊กด้านขวาได้เลย) -->
+                <a href="https://facebook.com" target="_blank" class="social-box fb">
+                    <span>📘 Facebook</span>
+                    <span class="social-icon">[ PERM ]</span>
+                </a>
 
-                <div class="contact-item">
-                    <div class="contact-icon">📞</div>
-                    <div class="contact-details">
-                        <h3>Telephone</h3>
-                        <p>0xx-xxx-xxxx</p>
-                    </div>
-                </div>
+                <!-- ช่องทาง Instagram -->
+                <a href="https://instagram.com" target="_blank" class="social-box ig">
+                    <span>📸 Instagram</span>
+                    <span class="social-icon">[ prem_08.ixz ]</span>
+                </a>
 
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <div class="contact-details">
-                        <h3>Address / School</h3>
-                        <p>โรงเรียน [พานทอง], จังหวัด [ชลบุรี]</p>
-                    </div>
-                </div>
+                <!-- ช่องทาง Email -->
+                <a href="mailto:your-email@gmail.com" class="social-box email">
+                    <span>✉️ Email</span>
+                    <span class="social-icon">[ thidarat195107@gmail.com ]</span>
+                </a>
 
-                <div class="contact-item">
-                    <div class="contact-icon">🌐</div>
-                    <div class="contact-details">
-                        <h3>Social Media / Line</h3>
-                        <p>Line ID: [-] / Facebook: [PE RM]</p>
-                    </div>
-                </div>
-
+                <!-- ช่องทาง เบอร์โทรศัพท์ -->
+                <a href="tel:0xxxxxxxxx" class="social-box tel">
+                    <span>📞 Telephone</span>
+                    <span class="social-icon">[ 0614763075 ]</span>
+                </a>
             </div>
 
-            <a href="mailto:yourname@gmail.com" class="btn-email">ส่งอีเมลหาฉันโดยตรง</a>
-            <br>
-            <a href="index.html" class="btn-back">⬅ กลับสู่หน้าหลัก</a>
+            <!-- ปุ่มกลับหน้าแรกนุ่มนวล -->
+            <a href="index.html" class="btn-glow">BACK TO HOME ✨</a>
+            
+            <div class="thank-you">✦ THANK YOU FOR VISITING MY PORTFOLIO ✦</div>
         </div>
-    </div>
+    </section>
 
-    <footer style="margin-top: 50px;">
-        <p>&copy; 2026 พอร์ตโฟลิโอ ม.6 | สร้างด้วย GitHub Pages</p>
-    </footer>
+    <!-- สคริปต์ทำหิมะและหัวใจตก -->
+    <script>
+        const elements = ['❄️', '🤍'];
+        function createFallingElement() {
+            const element = document.createElement('div');
+            element.classList.add('falling-element');
+            element.innerText = elements[Math.floor(Math.random() * elements.length)];
+            element.style.left = Math.random() * 100 + 'vw';
+            element.style.fontSize = Math.random() * 16 + 12 + 'px';
+            element.style.animationDuration = Math.random() * 4 + 4 + 's';
+            element.style.opacity = Math.random() * 0.4 + 0.6;
+            document.body.appendChild(element);
+            setTimeout(() => { element.remove(); }, 8000);
+        }
+        setInterval(createFallingElement, 300);
+    </script>
 
 </body>
 </html>
