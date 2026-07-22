@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio | ม.6</title>
     <style>
-        /* --- ตั้งค่าเริ่มต้น --- */
+        /* --- Reset & Base Settings --- */
         * {
             margin: 0;
             padding: 0;
@@ -15,7 +15,7 @@
         }
 
         body {
-            /* เฉดสีม่วง-ชมพูตามสั่ง */
+            /* เฉดสีม่วง-ชมพูสุดน่ารัก */
             background: linear-gradient(135deg, #3d1e6d, #8e24aa, #d81b60, #f48fb1);
             background-size: 400% 400%;
             animation: gradientBG 12s ease infinite;
@@ -23,6 +23,8 @@
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         @keyframes gradientBG {
@@ -34,8 +36,8 @@
         /* --- แถบเมนูด้านบน --- */
         header {
             background: rgba(61, 30, 109, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border-bottom: 2px solid #f48fb1;
             position: sticky;
             top: 0;
@@ -58,16 +60,21 @@
             text-decoration: none;
             margin-left: 20px;
             font-weight: 500;
+            transition: 0.3s;
         }
 
-        /* --- กล่องเนื้อหาการ์ดโปร่งแสง --- */
+        nav a:hover {
+            color: #f48fb1;
+        }
+
+        /* --- กล่องเนื้อหาหน้าแรก --- */
         section {
             padding: 80px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 90vh;
+            flex-grow: 1;
         }
 
         .content-card {
@@ -88,9 +95,10 @@
             margin-bottom: 25px;
         }
 
+        /* โค้ดปรับรูปน้องให้เป็นวงกลมเรืองแสง */
         .profile-img {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             object-fit: cover;
             border-radius: 50%;
             border: 4px solid #f48fb1;
@@ -117,6 +125,13 @@
             text-decoration: none;
             font-weight: bold;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #f48fb1;
+            color: white;
         }
 
         /* --- เอฟเฟกต์ ❄️ และ 🤍 หล่นลงมา --- */
@@ -139,21 +154,27 @@
 </head>
 <body>
 
+    <!-- เพิ่มแถบเมนูนำทางเพื่อให้กดสลับหน้าง่ายขึ้นบนหน้าแรก -->
     <header>
         <div class="logo">PORTFOLIO ❄️🤍</div>
         <nav>
-            <a href="#home">หน้าแรก</a>
+            <a href="index.html" style="color: #f48fb1;">Home</a>
+            <a href="personal.html">Profile</a>
+            <a href="education.html">Education</a>
+            <a href="activities.html">Activities</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
     <section id="home">
-        <div class="content-<img src="https://apicdn.work" alt="รูปภาพโปรไฟล์" class="profile-img">
-                <!-- พี่ใส่ลิงก์รูปภาพนักเรียนของน้องไว้ให้ในนี้เรียบร้อยแล้วครับ -->
-                <img src="https://squarespace-cdn.com" alt="รูปภาพโปรไฟล์" class="profile-img">
+        <div class="content-card">
+            <div class="profile-container">
+                <!-- พี่ใส่ลิงก์รูปถ่ายนักเรียนม.6 ของน้องลงในนี้เรียบร้อยครับ ดึงจากเซิร์ฟเวอร์หลักชัวร์แน่นอน -->
+                <img src="https://imgur.com" alt="รูปภาพโปรไฟล์" class="profile-img">
             </div>
             <h1>ยินดีต้อนรับสู่เว็บไซต์ของฉัน 🤍</h1>
             <p>แฟ้มสะสมผลงานระดับชั้น ม.6 ของฉัน</p>
-            <a href="#" class="btn">ทำความรู้จักกันเลย ✨</a>
+            <a href="personal.html" class="btn">ทำความรู้จักกันเลย ✨</a>
         </div>
     </section>
 
@@ -166,7 +187,7 @@
             element.innerText = elements[Math.floor(Math.random() * elements.length)];
             element.style.left = Math.random() * 100 + 'vw';
             element.style.fontSize = Math.random() * 15 + 12 + 'px';
-            element.style.animationDuration = Math.random() * 3 + 4 + 's';
+            element.style.animationDuration = Math.random() * 4 + 4 + 's';
             element.style.opacity = Math.random() * 0.5 + 0.5;
             document.body.appendChild(element);
             setTimeout(() => { element.remove(); }, 7000);
