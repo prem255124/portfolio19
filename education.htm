@@ -3,274 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education | ประวัติการศึกษา</title>
+    <title>Education | ประวัติการศึกษา ม.6</title>
     <style>
-        /* --- Reset & Base Settings --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: linear-gradient(135deg, #1a0b2e, #311b92, #880e4f, #ff4081, #f48fb1);
-            background-size: 400% 400%;
-            animation: gradientBG 10s ease infinite;
-            color: #ffffff;
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* --- Header หรูหราโปร่งแสง --- */
-        header {
-            background: rgba(26, 11, 46, 0.6);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 2px solid rgba(255, 64, 129, 0.5);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 18px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .logo {
-            color: #ff4081;
-            font-weight: 900;
-            font-size: 24px;
-            letter-spacing: 2px;
-            text-shadow: 0 0 15px rgba(255, 64, 129, 0.8);
-        }
-
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            margin-left: 25px;
-            font-weight: 600;
-            font-size: 14px;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #ff4081;
-            text-shadow: 0 0 10px rgba(255, 64, 129, 0.6);
-        }
-
-        /* --- Main Content Section --- */
-        section {
-            padding: 60px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex-grow: 1;
-        }
-
-        /* กล่องกระจกแก้วเรืองแสงออร่า */
-        .premium-card {
-            background: rgba(255, 255, 255, 0.07);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            padding: 50px 40px;
-            border-radius: 30px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 
-                        0 0 40px rgba(255, 64, 129, 0.2);
-            max-width: 650px;
-            width: 100%;
-            z-index: 10;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .premium-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, #00e5ff, #ff4081, #8e24aa);
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            text-align: center;
-            background: linear-gradient(to right, #ffffff, #f48fb1, #ff4081);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 35px;
-            letter-spacing: 1px;
-        }
-
-        /* --- ไทม์ไลน์การศึกษาแบบจึ้งๆ --- */
-        .timeline {
-            position: relative;
-            border-left: 3px dashed rgba(255, 64, 129, 0.4);
-            padding-left: 30px;
-            margin-left: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .timeline-item {
-            position: relative;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 20px;
-            border-radius: 15px;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        /* จุดวงกลมเรืองแสงบนเส้นไทม์ไลน์ */
-        .timeline-item::before {
-            content: '🎓';
-            position: absolute;
-            left: -44px;
-            top: 18px;
-            background: #1a0b2e;
-            border: 2px solid #ff4081;
-            border-radius: 50%;
-            width: 26px;
-            height: 26px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            box-shadow: 0 0 10px #ff4081;
-        }
-
-        .timeline-item:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 64, 129, 0.5);
-            transform: scale(1.02);
-            box-shadow: 0 5px 15px rgba(255, 64, 129, 0.15);
-        }
-
-        .year {
-            font-size: 0.95rem;
-            font-weight: bold;
-            color: #ff4081;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-
-        .level {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 5px;
-        }
-
-        .school {
-            font-size: 1.05rem;
-            color: #b39ddb;
-        }
-
-        /* ปุ่มกดดีไซน์นีออนเรืองแสง */
-        .btn-glow {
-            display: block;
-            background: linear-gradient(90deg, #ff4081, #8e24aa);
-            color: #ffffff;
-            padding: 14px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            text-align: center;
-            margin-top: 40px;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 20px rgba(255, 64, 129, 0.4);
-            transition: all 0.4s ease;
-        }
-
-        .btn-glow:hover {
-            box-shadow: 0 0 35px rgba(255, 64, 129, 0.8);
-            transform: translateY(-4px);
-        }
-
-        /* --- เอฟเฟกต์ ❄️ และ 🤍 ตกหล่น --- */
-        .falling-element {
-            position: absolute;
-            top: -20px;
-            pointer-events: none;
-            animation: fall linear forwards;
-            color: rgba(255, 255, 255, 0.9);
-            user-select: none;
-            z-index: 1;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(105vh) rotate(360deg);
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
+        body { background: linear-gradient(135deg, #1a0b2e, #311b92, #880e4f, #ff4081, #f48fb1); background-size: 400% 400%; animation: gradientBG 10s ease infinite; color: #ffffff; min-height: 100vh; overflow-x: hidden; display: flex; flex-direction: column; }
+        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        header { background: rgba(26, 11, 46, 0.6); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 2px solid rgba(255, 64, 129, 0.5); position: sticky; top: 0; z-index: 1000; padding: 18px 8%; display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: #ff4081; font-weight: 900; font-size: 24px; text-shadow: 0 0 15px rgba(255, 64, 129, 0.8); }
+        nav a { color: #ffffff; text-decoration: none; margin-left: 25px; font-weight: 600; font-size: 14px; transition: 0.3s; }
+        nav a:hover { color: #ff4081; }
+        section { padding: 60px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-grow: 1; }
+        .premium-card { background: rgba(255, 255, 255, 0.07); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.25); padding: 50px 40px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 64, 129, 0.2); max-width: 650px; width: 100%; z-index: 10; position: relative; overflow: hidden; }
+        .premium-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: linear-gradient(90deg, #00e5ff, #ff4081, #8e24aa); }
+        h2 { font-size: 2.5rem; font-weight: 800; text-align: center; background: linear-gradient(to right, #ffffff, #f48fb1, #ff4081); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 35px; }
+        .timeline { position: relative; border-left: 3px dashed rgba(255, 64, 129, 0.4); padding-left: 30px; margin-left: 10px; display: flex; flex-direction: column; gap: 30px; }
+        .timeline-item { position: relative; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); padding: 20px; border-radius: 15px; transition: 0.3s; }
+        .timeline-item::before { content: '🎓'; position: absolute; left: -44px; top: 18px; background: #1a0b2e; border: 2px solid #ff4081; border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-size: 14px; box-shadow: 0 0 10px #ff4081; }
+        .timeline-item:hover { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 64, 129, 0.5); transform: scale(1.02); }
+        .year { font-size: 0.95rem; font-weight: bold; color: #ff4081; margin-bottom: 5px; }
+        .level { font-size: 1.3rem; font-weight: 700; color: #ffffff; margin-bottom: 5px; }
+        .school { font-size: 1.05rem; color: #b39ddb; }
+        .btn-glow { display: block; background: linear-gradient(90deg, #ff4081, #8e24aa); color: #ffffff; padding: 14px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; text-align: center; margin-top: 40px; box-shadow: 0 4px 20px rgba(255, 64, 129, 0.4); transition: 0.4s; }
+        .btn-glow:hover { box-shadow: 0 0 35px rgba(255, 64, 129, 0.8); transform: translateY(-4px); }
+        .falling-element { position: absolute; top: -20px; pointer-events: none; animation: fall linear forwards; color: rgba(255, 255, 255, 0.9); z-index: 1; }
+        @keyframes fall { to { transform: translateY(105vh) rotate(360deg); } }
     </style>
 </head>
 <body>
 
-    <!-- แถบเมนูด้านบน -->
     <header>
         <div class="logo">MY SPACE ❄️🤍</div>
         <nav>
             <a href="index.html">Home</a>
             <a href="personal.html">Profile</a>
-            <a href="education.html" style="color: #ff4081;">Education</a>
+            <a href="education.htm" style="color: #ff4081;">Education</a>
+            <a href="activities.html">Activities</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
-    <!-- ส่วนเนื้อหาหลัก -->
     <section>
         <div class="premium-card">
             <h2>EDUCATION HISTORY 🎓</h2>
-            
             <div class="timeline">
-                <!-- ระดับชั้น ม.ปลาย -->
                 <div class="timeline-item">
                     <div class="year">ปีการศึกษา 2567 - ปัจจุบัน</div>
-                    <div class="level">มัธยมศึกษาตอนปลาย (ม.4 - ม.6)</div>
-                    <div class="school">โรงเรียน: [ พานทอง ]</div>
-                    <div style="color: #f48fb1; font-size: 0.95rem; margin-top: 5px;">แผนการเรียน: [ วิทย์-คณิต ]</div>
-                </div>
-
-                <!-- ระดับชั้น ม.ต้น -->
-                <div class="timeline-item">
-                    <div class="year">ปีการศึกษา 2565 - 2570</div>
-                    <div class="level">มัธยมศึกษาตอนต้น (ม.1 - ม.3)</div>
-                    <div class="school">โรงเรียน: [ พานทอง ]</div>
-                </div>
-
-                <!-- ระดับชั้น ประถม -->
-                <div class="timeline-item">
-                    <div class="year">ปีการศึกษา 2557 - 2564</div>
-                    <div class="level">ประถมศึกษา (ป.1 - ป.6)</div>
-                    <div class="school">โรงเรียน: [ บ้านวังตายศราฎสามัคคีเเละวัดดอนดำรงธรรม ]</div>
+                    <div class="level">มัธยมศึกษาตอนปลาย (ม.6)</div>
+                    <div class="school">โรงเรียนพานทอง แผนการเรียนศิลป์-ภาษา</div>
                 </div>
             </div>
-
-            <!-- ปุ่มกลับหน้าแรกนุ่มนวล -->
             <a href="index.html" class="btn-glow">BACK TO HOME ✨</a>
         </div>
     </section>
 
-    <!-- สคริปต์ทำหิมะและหัวใจตก -->
     <script>
         const elements = ['❄️', '🤍'];
         function createFallingElement() {
@@ -286,6 +71,5 @@
         }
         setInterval(createFallingElement, 300);
     </script>
-
 </body>
 </html>
