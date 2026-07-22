@@ -235,39 +235,39 @@
             <div class="subtitle">ภาพกิจกรรมเด่นและการเข้าร่วมผลงานต่างๆ ในรั้วโรงเรียน</div>
             
             <div class="gallery-grid">
-                <!-- กิจกรรมที่ 1 -->
+                <!-- กิจกรรมที่ 1 (เกียรติบัตร) -->
                 <div class="gallery-item">
-                    <img src="https://squarespace-cdn.com" alt="กิจกรรมที่ 1" class="gallery-img">
+                    <img src="https://imgur.com" alt="กิจกรรมที่ 1" class="gallery-img">
                     <div class="gallery-info">
                         <div class="gallery-title">เข้ารับเกียรติบัตรโรงเรียนพานทอง</div>
-                        <div class="gallery-desc">ภาพกิจกรรมเด่นเนื่องในงานวันที่ 1 สิงหาคม 2568 ณ โรงเรียนพานทอง [ เป็นกิจกรรมสร้างจรวดด้วยขวดน้ำได้รางวัลรองชนะเลิศลำดับ1 ]</div>
+                        <div class="gallery-desc">ภาพกิจกรรมเด่นเนื่องในงานวันที่ 1 สิงหาคม 2568 ณ โรงเรียนพานทอง</div>
                     </div>
                 </div>
 
-                <!-- กิจกรรมที่ 2 -->
+                <!-- กิจกรรมที่ 2 (กีฬาสี) -->
                 <div class="gallery-item">
-                    <img src="https://squarespace-cdn.com" alt="กิจกรรมที่ 2" class="gallery-img">
+                    <img src="https://imgur.com" alt="กิจกรรมที่ 2" class="gallery-img">
                     <div class="gallery-info">
                         <div class="gallery-title">การแข่งขันงานกีฬาสี โรงเรียนพานทอง</div>
-                        <div class="gallery-desc">ภาพความประทับใจจากการเข้าร่วมแข่งขันในงานกีฬาสี เมื่อวันที่ 11 กันยายน 2568 ได้รับรางวัลรองชนะเลิศอันดับ 2 (เหรียญทองแดง) !</div>
+                        <div class="gallery-desc">ภาพความประทับใจจากการเข้าร่วมแข่งขันในงานกีฬาสี เมื่อวันที่ 11 กันยายน 2568 ได้รับรางวัลรองชนะเลิศอันดับ 2 (เหรียญทองแดง)</div>
                     </div>
                 </div>
 
-                <!-- กิจกรรมที่ 3 -->
+                <!-- กิจกรรมที่ 3 (บุญกองข้าว) -->
                 <div class="gallery-item">
-                    <img src="https://squarespace-cdn.com" alt="กิจกรรมที่ 3" class="gallery-img">
+                    <img src="https://imgur.com" alt="กิจกรรมที่ 3" class="gallery-img">
                     <div class="gallery-info">
                         <div class="gallery-title">ร่วมขบวนแห่ งานประเพณีบุญกองข้าว</div>
-                        <div class="gallery-desc">ภาพการเป็นตัวแทนเข้าร่วมเดินขบวนและถือป้ายประชาสัมพันธ์ในงานประเพณีบุญกองข้าว งานประจำปีประจำท้องถิ่น เมื่อวันที่ 3 เมษายน 2569 ค่ะ</div>
+                        <div class="gallery-desc">ภาพการเป็นตัวแทนเข้าร่วมเดินขบวนและถือป้ายประชาสัมพันธ์ในงานประเพณีบุญกองข้าว งานประจำปีประจำท้องถิ่น เมื่อวันที่ 3 เมษายน 2569</div>
                     </div>
                 </div>
 
-                <!-- กิจกรรมที่ 4 (รูปภาพศึกษาดูงานใหม่ล่าสุดที่เพิ่มเข้ามาครับ) -->
+                <!-- กิจกรรมที่ 4 (โรงไฟฟ้า) -->
                 <div class="gallery-item">
-                    <img src="https://squarespace-cdn.com" alt="กิจกรรมที่ 4" class="gallery-img">
+                    <img src="https://imgur.com" alt="กิจกรรมที่ 4" class="gallery-img">
                     <div class="gallery-info">
                         <div class="gallery-title">ศึกษาดูงาน ณ โรงไฟฟ้าบางปะกง</div>
-                        <div class="gallery-desc">เปิดประสบการณ์โลกแห่งการเรียนรู้นอกห้องเรียน เข้าร่วมศึกษาดูงานกระบวนการผลิตพลังงานไฟฟ้า ณ โรงไฟฟ้าบางปะกง เมื่อวันที่ 4 กรกฎาคม 2569 ได้ความรู้เพียบเลยค่ะ</div>
+                        <div class="gallery-desc">เปิดประสบการณ์โลกแห่งการเรียนรู้นอกห้องเรียน เข้าร่วมศึกษาดูงานกระบวนการผลิตพลังงานไฟฟ้า ณ โรงไฟฟ้าบางปะกง เมื่อวันที่ 4 กรกฎาคม 2569</div>
                     </div>
                 </div>
             </div>
@@ -281,3 +281,10 @@
     <script>
         const elements = ['❄️', '🤍'];
         function createFallingElement() {
+            const element = document.createElement('div');
+            element.classList.add('falling-element');
+            element.innerText = elements[Math.floor(Math.random() * elements.length)];
+            element.style.left = Math.random() * 100 + 'vw';
+            element.style.fontSize = Math.random() * 16 + 12 + 'px';
+            element.style.animationDuration = Math.random() * 4 + 4 + 's';
+            element.style.opacity = Math.random() * 0.4 + 0.6;
